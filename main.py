@@ -23,3 +23,60 @@
 # Nejauša skaitļa generēšana - https://www.w3schools.com/python/ref_random_randint.asp
 # Github Fork (repozitorija kopija) - https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo
 # Klonēt repozitoriju - hhttps://code.visualstudio.com/docs/sourcecontrol/intro-to-git
+
+import random 
+
+# Sākuma pozīcijas spēlētājiem
+player1 = 1
+player2 = 1
+
+# Kāpņu definīcijas
+blue = {16: 5, 65: 44, 78: 67, 72: 61}
+red = {13: 22, 37: 46, 31: 50, 85: 94}
+
+# Maksimālais raundu skaits
+max_rounds = 30
+
+# Funkcija kāpņu pārbaudei
+def check_ladders(position):
+    if position in blue:
+        print(f"Player hits a blue ladder at {position}, moves to {blue[position]}")
+        return blue[position]
+
+    elif position in red:
+        print(f"Player hits a red ladder at {position}, moves to {red[position]}")
+        return red[position]
+
+    else:
+        return position
+
+# Galvenais spēles cikls
+for round in range(1, max_rounds + 1):
+    print(f"\nRound {round}")
+    
+    # Spēlētāja 1 gājiens
+    dice = random.randint(1, 6)
+    player1 += dice
+    print(f"Player 1 rolls a {dice} and moves to {player1}")
+    player1 = check_ladders(player1)
+    print(f"Player 1 is now on {player1}")
+    
+    # Pārbauda vai spēlētājs 1 ir uzvarējis
+    if player1 >= 100:
+        print("Player 1 wins!")
+        break
+    
+    # Spēlētāja 2 gājiens
+    dice = random.randint(1, 6)
+    player2 += dice
+    print(f"Player 2 rolls a {dice} and moves to {player2}")
+    player2 = check_ladders(player2)
+    print(f"Player 2 is now on {player2}")
+    
+    # Pārbauda vai spēlētājs 2 ir uzvarējis
+    if player2 >= 100:
+        print("Player 2 wins!")
+        break
+else:
+    print("Draw!")
+
