@@ -24,6 +24,7 @@
 # Github Fork (repozitorija kopija) - https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo
 # Klonēt repozitoriju - hhttps://code.visualstudio.com/docs/sourcecontrol/intro-to-git
 
+
 import random 
 
 # Sākuma pozīcijas spēlētājiem
